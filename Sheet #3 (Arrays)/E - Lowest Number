@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int N = 0;
+    cin >> N;
+    int A[N];
+
+    for (int i = 0; i < N; i++)
+    {
+        cin >> A[i];
+    }
+
+    int low = A[0];
+    int index = 1;
+
+    for (int i = 0; i < N; i++)
+    {
+        if (low > A[i])
+        {
+            low = A[i];
+            index = i + 1;
+        }
+    }
+
+    cout << low << " " << index;
+
+    return 0;
+}

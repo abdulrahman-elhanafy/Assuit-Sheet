@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int N = 0;
+    cin >> N;
+    bool found = false;
+    int target = 0;
+    int arr[N];
+    
+    for (int i = 0; i < N; i++)
+    {
+        cin >> arr[i];
+    }
+    cin >> target;
+    int index = 0;
+    for (int i = 0; i < N; i++){
+        if (target == arr[i])
+        {
+            found = true;
+            index = i;
+            break;
+        }
+    }
+    
+    if (found)
+        cout << index;
+    else cout << -1;
+    
+
+    return 0;
+}

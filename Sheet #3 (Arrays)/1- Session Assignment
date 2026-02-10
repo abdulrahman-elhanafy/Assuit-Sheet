@@ -1,0 +1,212 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    cout << "============================================\n";
+    cout << "     Welcome to my Assignment Program 🫡    \n";
+    cout << "============================================\n\n";
+
+    cout << "1 - Add two 2D arrays (2x3)\n";
+    cout << "2 - Search for an element in 2D array (3x4)\n";
+    cout << "3 - Print smallest number in each row (3x4)\n";
+    cout << "4 - Print main diagonal of square array (4x4)\n";
+    cout << "5 - Calculate total sum and row sums (3x4)\n";
+    cout << "--------------------------------------------\n";
+
+    cout << "\nChoose program number: ";
+
+    int casee = 0;
+    cin >> casee;
+
+    switch (casee)
+    {
+
+    case 1:
+    {
+        cout << "\n================= CASE 1 =================\n";
+
+        int arr1[2][3], arr2[2][3], sumArray[2][3];
+
+        cout << "\n--- Array 1 ---\n";
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                cout << "Enter value at [" << i << "][" << j << "]: ";
+                cin >> arr1[i][j];
+            }
+        }
+
+        cout << "\n--- Array 2 ---\n";
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                cout << "Enter value at [" << i << "][" << j << "]: ";
+                cin >> arr2[i][j];
+            }
+        }
+
+        cout << "\n--- Sum Array ---\n";
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                sumArray[i][j] = arr1[i][j] + arr2[i][j];
+                cout << sumArray[i][j] << " ";
+            }
+            cout << endl;
+        }
+
+        break;
+    }
+
+    case 2:
+    {
+        cout << "\n================= CASE 2 =================\n";
+
+        int arr[3][4] = {
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            9, 10, 11, 12};
+
+        int index1 = 0, index2 = 0;
+        int num = 0;
+        bool found = false;
+
+        cout << "Enter number to search: ";
+        cin >> num;
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (arr[i][j] == num)
+                {
+                    found = true;
+                    index1 = i;
+                    index2 = j;
+                    break;
+                }
+            }
+        }
+
+        if (found)
+            cout << "Number found at [" << index1 << "][" << index2 << "]\n";
+        else
+            cout << "Number not found.\n";
+
+        break;
+    }
+
+    case 3:
+    {
+        cout << "\n================= CASE 3 =================\n";
+
+        int arr[3][4] = {
+            35, 53, 11, 66,
+            22, 80, 58, 84,
+            48, 76, 14, 19};
+
+        int smallElements[3];
+
+        cout << "\nArray:\n";
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+                cout << arr[i][j] << " ";
+            cout << endl;
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            smallElements[i] = arr[i][0];
+
+            for (int j = 0; j < 4; j++)
+            {
+                if (arr[i][j] < smallElements[i])
+                    smallElements[i] = arr[i][j];
+            }
+        }
+
+        cout << "\nSmallest numbers in each row:\n";
+        for (int i = 0; i < 3; i++)
+            cout << smallElements[i] << " ";
+
+        cout << endl;
+        break;
+    }
+
+    case 4:
+    {
+        cout << "\n================= CASE 4 =================\n";
+
+        int arr[4][4] = {
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            9, 10, 11, 12,
+            13, 14, 15, 16};
+
+        cout << "\nArray:\n";
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+                cout << arr[i][j] << " ";
+            cout << endl;
+        }
+
+        cout << "\nMain diagonal:\n";
+        for (int i = 0; i < 4; i++)
+            cout << arr[i][i] << " ";
+
+        cout << endl;
+        break;
+    }
+
+    case 5:
+    {
+        cout << "\n================= CASE 5 =================\n";
+
+        int arr[3][4] = {
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            9, 10, 11, 12};
+
+        cout << "\nArray:\n";
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+                cout << arr[i][j] << " ";
+            cout << endl;
+        }
+
+        int totalSum = 0;
+
+        cout << "\nRow sums:\n";
+        for (int i = 0; i < 3; i++)
+        {
+            int rowSum = 0;
+
+            for (int j = 0; j < 4; j++)
+            {
+                totalSum += arr[i][j];
+                rowSum += arr[i][j];
+            }
+
+            cout << "Row " << i + 1 << " sum = " << rowSum << endl;
+        }
+
+        cout << "\nTotal sum = " << totalSum << endl;
+
+        break;
+    }
+
+    default:
+        cout << "Invalid choice.\n";
+    }
+
+    return 0;
+}

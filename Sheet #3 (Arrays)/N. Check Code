@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    int A, B;
+    cin >> A >> B;
+    int ssize = A + B + 1;
+    string S;
+    cin >> S;
+    long long length = S.length();
+
+    if (S.length() != ssize)
+    {
+        cout << "No";
+        return 0;
+    }
+    else
+    {
+        if (S[A] != '-')
+        {
+            cout << "No";
+            return 0;
+        }
+        else
+        {
+            bool notNum = false;
+            for (int i = 0; i < ssize; i++)
+            {
+                if (A == i)
+                {
+                    continue;
+                }
+                else
+                {
+                    if (!isdigit(S[i]))
+                    {
+                        notNum = true;
+                    }
+                }
+            }
+            if (notNum)
+            {
+                cout << "No";
+            }
+            else
+                cout << "Yes";
+        }
+    }
+
+    return 0;
+}
+
+// ssize != S.length()
+
+// S[A] != '-'

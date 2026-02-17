@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int A;
+    cin >> A;
+    int arr[A][A];
+    for (int i = 0; i < A; i++)
+    {
+        for (int j = 0; j < A; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+
+    int primarySum = 0, secondrySum = 0;
+
+    for (int i = 0; i < A; i++)
+    {
+        primarySum += arr[i][i];
+        secondrySum += arr[i][A - 1 - i];
+    }
+
+    cout << abs(primarySum - secondrySum);
+
+    return 0;
+}

@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int N, Q;
+    cin >> N >> Q;
+    int arr[N];
+    long long prefixArr[N];
+
+    for (auto &&i : arr)
+    {
+        cin >> i;
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        if (i == 0)
+            prefixArr[0] = arr[0];
+        else
+            prefixArr[i] = prefixArr[i - 1] + arr[i];
+    }
+
+    while (Q--)
+    {
+        int L, R;
+        cin >> L >> R;
+        if (L == 1)
+            cout << prefixArr[R - 1] << endl;
+        else
+            cout << prefixArr[R - 1] - prefixArr[L - 2] << endl;
+    }
+
+    return 0;
+}

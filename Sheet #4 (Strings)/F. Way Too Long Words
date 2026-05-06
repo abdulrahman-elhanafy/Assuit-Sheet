@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+  int cases = 0;
+  string testCase;
+  cin >> cases;
+  for (int i = 0; i < cases; i++)
+  {
+    cin >> testCase;
+    if (testCase.length() > 10)
+    {
+      cout << testCase[0] << testCase.length() - 2 << testCase[testCase.length() - 1] << endl;
+    }
+    else
+    {
+      cout << testCase << endl;
+    }
+  }
+
+  return 0;
+}

@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+  string X, rvrsX;
+  cin >> X;
+  rvrsX = X;
+  reverse(rvrsX.begin(), rvrsX.end());
+  if (X == rvrsX)
+  {
+    cout << "YES";
+  }
+  else
+    cout << "NO";
+  return 0;
+}
